@@ -88,6 +88,22 @@
         "documentation": {}
     },
     {
+        "label": "include",
+        "importPath": "django.urls.conf",
+        "description": "django.urls.conf",
+        "isExtraImport": true,
+        "detail": "django.urls.conf",
+        "documentation": {}
+    },
+    {
+        "label": "include",
+        "importPath": "django.urls.conf",
+        "description": "django.urls.conf",
+        "isExtraImport": true,
+        "detail": "django.urls.conf",
+        "documentation": {}
+    },
+    {
         "label": "render",
         "importPath": "django.shortcuts",
         "description": "django.shortcuts",
@@ -118,14 +134,6 @@
         "importPath": "os",
         "description": "os",
         "detail": "os",
-        "documentation": {}
-    },
-    {
-        "label": "include",
-        "importPath": "django.urls.conf",
-        "description": "django.urls.conf",
-        "isExtraImport": true,
-        "detail": "django.urls.conf",
         "documentation": {}
     },
     {
@@ -168,7 +176,7 @@
         "kind": 5,
         "importPath": "account.urls",
         "description": "account.urls",
-        "peekOfCode": "urlpatterns = [\n    # path('login/', views.user_login, name='login'),\n    path('login/', auth_views.LoginView.as_view(), name='login'),\n    path('logout/', auth_views.LogoutView.as_view(), name='logout'),\n    path('', views.dashboard, name='dashboard')\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.dashboard, name='dashboard'),\n    path('', include('django.contrib.auth.urls')),\n    # path('login/', views.user_login, name='login'),\n    #     path('login/', auth_views.LoginView.as_view(), name='login'),\n    #     path('logout/', auth_views.LogoutView.as_view(), name='logout'),\n    #     path('password_change/', auth_views.PasswordChangeView.as_view(),\n    #          name='password_change'),\n    #     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(),\n    #          name='password_change_done'),",
         "detail": "account.urls",
         "documentation": {}
     },
@@ -312,7 +320,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'",
+        "peekOfCode": "USE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -321,7 +329,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -330,7 +338,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -339,7 +347,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'",
+        "peekOfCode": "STATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -348,7 +356,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "LOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'",
+        "peekOfCode": "LOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -357,7 +365,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "LOGIN_URL = 'login'\nLOGOUT_URL = 'logout'",
+        "peekOfCode": "LOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -366,7 +374,16 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "LOGOUT_URL = 'logout'",
+        "peekOfCode": "LOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "detail": "bookmarks.settings",
+        "documentation": {}
+    },
+    {
+        "label": "EMAIL_BACKEND",
+        "kind": 5,
+        "importPath": "bookmarks.settings",
+        "description": "bookmarks.settings",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
