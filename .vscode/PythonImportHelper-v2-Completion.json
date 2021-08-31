@@ -33,6 +33,46 @@
     },
     {
         "label": "models",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "views",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "authenticate",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "models",
         "importPath": "django.db",
         "description": "django.db",
         "isExtraImport": true,
@@ -61,30 +101,6 @@
         "description": "django.urls",
         "isExtraImport": true,
         "detail": "django.urls",
-        "documentation": {}
-    },
-    {
-        "label": "views",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "authenticate",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
-        "documentation": {}
-    },
-    {
-        "label": "login",
-        "importPath": "django.contrib.auth",
-        "description": "django.contrib.auth",
-        "isExtraImport": true,
-        "detail": "django.contrib.auth",
         "documentation": {}
     },
     {
@@ -167,7 +183,16 @@
         "kind": 6,
         "importPath": "account.forms",
         "description": "account.forms",
-        "peekOfCode": "class LoginForm(forms.Form):\n    username=forms.CharField()\n    password=forms.CharField(widget=forms.PasswordInput)",
+        "peekOfCode": "class LoginForm(forms.Form):\n    username = forms.CharField()\n    password = forms.CharField(widget=forms.PasswordInput)\nclass UserRegistrationForm(forms.ModelForm):\n    password = forms.CharField(label='Password', widget=forms.PasswordInput)\n    password2 = forms.CharField(\n        label='Repeat password', widget=forms.PasswordInput)\n    class Meta:\n        model = User\n        fields = ('username', 'first_name', 'email')",
+        "detail": "account.forms",
+        "documentation": {}
+    },
+    {
+        "label": "UserRegistrationForm",
+        "kind": 6,
+        "importPath": "account.forms",
+        "description": "account.forms",
+        "peekOfCode": "class UserRegistrationForm(forms.ModelForm):\n    password = forms.CharField(label='Password', widget=forms.PasswordInput)\n    password2 = forms.CharField(\n        label='Repeat password', widget=forms.PasswordInput)\n    class Meta:\n        model = User\n        fields = ('username', 'first_name', 'email')\n    def clean_password2(self):\n        cd = self.cleaned_data\n        if cd['password'] != cd['password2']:",
         "detail": "account.forms",
         "documentation": {}
     },
@@ -194,7 +219,16 @@
         "kind": 2,
         "importPath": "account.views",
         "description": "account.views",
-        "peekOfCode": "def dashboard(request):\n    return render(request, 'account/dashboard.html', {'section': 'dashboard'})",
+        "peekOfCode": "def dashboard(request):\n    return render(request, 'account/dashboard.html', {'section': 'dashboard'})\ndef register(request):\n    if request.method == 'POST':\n        user_form = UserRegistrationForm(request.POST)\n        if user_form.is_valid():\n            new_user = user_form.save(commit=False)\n            new_user.set_password(user_form.cleaned_data['password'])\n            new_user.save()\n            return render(request, 'account/register_done.html', {'new_user': new_user})",
+        "detail": "account.views",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 2,
+        "importPath": "account.views",
+        "description": "account.views",
+        "peekOfCode": "def register(request):\n    if request.method == 'POST':\n        user_form = UserRegistrationForm(request.POST)\n        if user_form.is_valid():\n            new_user = user_form.save(commit=False)\n            new_user.set_password(user_form.cleaned_data['password'])\n            new_user.save()\n            return render(request, 'account/register_done.html', {'new_user': new_user})\n    else:\n        user_form = UserRegistrationForm()",
         "detail": "account.views",
         "documentation": {}
     },
