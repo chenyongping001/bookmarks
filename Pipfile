@@ -5,7 +5,7 @@ name = "pypi"
 
 [packages]
 django = "==2.1.5"
+pillow = "*"
 
 [dev-packages]
 autopep8 = "*"
-

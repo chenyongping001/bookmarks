@@ -1,5 +1,62 @@
 [
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "django.db.models.deletion",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "django.db.models.deletion",
+        "description": "django.db.models.deletion",
+        "detail": "django.db.models.deletion",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -72,14 +129,6 @@
         "documentation": {}
     },
     {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
-        "documentation": {}
-    },
-    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -105,10 +154,10 @@
     },
     {
         "label": "include",
-        "importPath": "django.urls.conf",
-        "description": "django.urls.conf",
+        "importPath": "django.urls",
+        "description": "django.urls",
         "isExtraImport": true,
-        "detail": "django.urls.conf",
+        "detail": "django.urls",
         "documentation": {}
     },
     {
@@ -153,6 +202,14 @@
         "documentation": {}
     },
     {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -167,6 +224,24 @@
         "importPath": "sys",
         "description": "sys",
         "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "account.migrations.0001_initial",
+        "description": "account.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Profile',\n            fields=[\n                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),",
+        "detail": "account.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "ProfileAdmin",
+        "kind": 6,
+        "importPath": "account.admin",
+        "description": "account.admin",
+        "peekOfCode": "class ProfileAdmin(admin.ModelAdmin):\n    list_display = ['user', 'date_of_birth', 'photo']",
+        "detail": "account.admin",
         "documentation": {}
     },
     {
@@ -194,6 +269,15 @@
         "description": "account.forms",
         "peekOfCode": "class UserRegistrationForm(forms.ModelForm):\n    password = forms.CharField(label='Password', widget=forms.PasswordInput)\n    password2 = forms.CharField(\n        label='Repeat password', widget=forms.PasswordInput)\n    class Meta:\n        model = User\n        fields = ('username', 'first_name', 'email')\n    def clean_password2(self):\n        cd = self.cleaned_data\n        if cd['password'] != cd['password2']:",
         "detail": "account.forms",
+        "documentation": {}
+    },
+    {
+        "label": "Profile",
+        "kind": 6,
+        "importPath": "account.models",
+        "description": "account.models",
+        "peekOfCode": "class Profile(models.Model):\n    user = models.OneToOneField(\n        settings.AUTH_USER_MODEL, on_delete=models.CASCADE)\n    date_of_birth = models.DateField(blank=True, null=True)\n    photo = models.ImageField(upload_to='users/%y/%m/%d/', blank=True)\n    def __str__(self) -> str:\n        return 'Profile for user {}'.format(self.user.username)",
+        "detail": "account.models",
         "documentation": {}
     },
     {
@@ -363,7 +447,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "peekOfCode": "USE_L10N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nMEDIA_URL = '/media/'",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -372,7 +456,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/2.0/howto/static-files/\nSTATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -381,7 +465,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "STATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "peekOfCode": "STATIC_URL = '/static/'\nLOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -390,7 +474,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "LOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "peekOfCode": "LOGIN_REDIRECT_URL = 'dashboard'\nLOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -399,7 +483,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "LOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "peekOfCode": "LOGIN_URL = 'login'\nLOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -408,7 +492,7 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "LOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "peekOfCode": "LOGOUT_URL = 'logout'\nEMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -417,7 +501,25 @@
         "kind": 5,
         "importPath": "bookmarks.settings",
         "description": "bookmarks.settings",
-        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'",
+        "peekOfCode": "EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
+        "detail": "bookmarks.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "bookmarks.settings",
+        "description": "bookmarks.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
+        "detail": "bookmarks.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "bookmarks.settings",
+        "description": "bookmarks.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')",
         "detail": "bookmarks.settings",
         "documentation": {}
     },
@@ -426,7 +528,7 @@
         "kind": 5,
         "importPath": "bookmarks.urls",
         "description": "bookmarks.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('account/', include('account.urls')),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('account/', include('account.urls')),\n]\nif settings.DEBUG:\n    urlpatterns += static(settings.MEDIA_URL,\n                          document_root=settings.MEDIA_ROOT)",
         "detail": "bookmarks.urls",
         "documentation": {}
     },
